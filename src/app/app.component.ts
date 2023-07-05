@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {
-    this.password = '111';
+    this.password = '';
   }
   title = 'AngularGeneratePassword';
 
