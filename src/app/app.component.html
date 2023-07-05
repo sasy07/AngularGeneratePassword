@@ -18,40 +18,47 @@
           </label>
         </div>
       </div>
-        <div class="field">
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" (change)="onChangeNumber()" />
+            Use Numbers
+          </label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" (change)="onChangeSymbol()" />
+            Use Symbols
+          </label>
+        </div>
+      </div>
+      <button
+        class="button is-link is-fullwidth"
+        [disabled]="
+          !(length && (includeLetters || includeNumbers || includeSymbols))
+        "
+        (click)="onButtonClick()"
+      >
+        Generate!
+      </button>
+      <div class="field">
+        <label>Your password </label>
+        <div class="field has-addons">
+          <div class="control is-expanded">
+            <input
+              class="input is-fullwidth"
+              type="text"
+              [value]="getPassword()"
+            />
+          </div>
           <div class="control">
-            <label class="checkbox">
-              <input type="checkbox" (change)="onChangeNumber()" />
-              Use Numbers
-            </label>
-          </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <label class="checkbox">
-                <input type="checkbox" (change)="onChangeSymbol()" />
-                Use Symbols
-              </label>
-            </div>
-          </div>
-          <button
-          class="button is-link is-fullwidth"
-            [disabled]="
-              !(length && (includeLetters || includeNumbers || includeSymbols))
-            "
-            (click)="onButtonClick()"
-          >
-            Generate!
-          </button>
-          <div class="field" *ngIf="password">
-            <label>YOUR PASSWORD</label>
-            <input class="input" [value]="getPassword()" type="text" />
+            <a class="button is-success is-outlined"
+            (click)="copyToClipboard()"> Copy to clipboard </a>
           </div>
         </div>
       </div>
     </div>
-
- 
-
-
-
+  </div>
+</div>

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {
-    this.password = '';
+    this.password = '111';
   }
   title = 'AngularGeneratePassword';
 
@@ -57,5 +57,21 @@ export class AppComponent {
   }
   onChangeSymbol() {
     this.includeSymbols = !this.includeSymbols;
+  }
+
+  copyToClipboard(){
+    
+
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = this.password;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
   }
 }
